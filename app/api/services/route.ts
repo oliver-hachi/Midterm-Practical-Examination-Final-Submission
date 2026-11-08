@@ -1,7 +1,7 @@
+
+
 import { NextResponse } from "next/server";
-import {
-  createSupabaseServerClient,
-} from "@/src/lib/supabaseServer";
+import { createSupabaseServerClient } from "@/src/lib/supabaseServer";
 import { serviceSchema } from "@/src/schemas/service";
 
 // GET: Return approved services with public information only.
@@ -16,6 +16,7 @@ export async function GET() {
     .eq("status", "approved");
 
   if (error) {
+    console.error("Supabase GET error:", error);
     return NextResponse.json(
       { error: "Unable to retrieve services" },
       { status: 500 }
@@ -98,6 +99,7 @@ export async function POST(request: Request) {
     .single();
 
   if (error) {
+    console.error("Supabase POST error:", error);
     return NextResponse.json(
       { error: "Unable to create service" },
       { status: 500 }
