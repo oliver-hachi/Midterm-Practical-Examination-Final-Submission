@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables and secrets
+.env
+.env*.local
+
+# Build output
+dist/
+.next/
+out/
+build/
+
+# Other generated files
+coverage/
+.vercel/
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
